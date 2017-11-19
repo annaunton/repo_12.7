@@ -1,21 +1,21 @@
 // scripts.js
+$(function() {
+	var span = $('span');
+	span.each(function(index, element) {
+		if (index % 2 == 0) {
+			$(element).css('color', 'red');
+		}
 
-var triangleBase = prompt('Enter triangle base');
-var triangleHeight = prompt('Enter triangle height');
+	});
 
-function getTriangleArea(a,h) {
-	if (a <= 0 || h <= 0) {
-		console.log('Błędne dane');
-	} else {
-		var result = a*h/2;
-		return result;	
-	}
-}
+	var paragraph = $('p');
+	paragraph.each(function(index, element) { 
+		$(element).append('<br><button class="btn" data-tmp="' + index + '">Click me!</button>');
+	});
 
-var triangle1Area = getTriangleArea(triangleBase,triangleHeight);
-var triangle2Area = getTriangleArea(8,5);
-var triangle3Area = getTriangleArea(100,0.5);
+	$('button').click(function() {
+		alert($(this).attr('data-tmp'));
 
-console.log(triangle1Area);
-console.log(triangle2Area);
-console.log(triangle3Area);
+	});
+});
+
