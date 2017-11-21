@@ -1,21 +1,60 @@
 // scripts.js
-$(function() {
-	var span = $('span');
-	span.each(function(index, element) {
-		if (index % 2 == 0) {
-			$(element).css('color', 'red');
-		}
+$(function(){
 
-	});
+	var carouselList = $("#carousel ul");
+	var interval = setInterval(changeSlide, 3000);
+	
+	
+	var i = 0;
+	var buttons = $('.slider');
+		buttons.eq(i).addClass('active');
 
-	var paragraph = $('p');
-	paragraph.each(function(index, element) { 
-		$(element).append('<br><button class="btn" data-tmp="' + index + '">Click me!</button>');
-	});
+	function changeSlide () {
+		carouselList.animate({'marginLeft':-400}, 1000, moveFirstSlide);
+		
+		changeButtonsForward ();
+	};
 
-	$('button').click(function() {
-		alert($(this).attr('data-tmp'));
+	function moveFirstSlide () {
 
-	});
+		var firstItem = carouselList.find("li:first");
+		var lastItem = carouselList.find("li:last");
+		lastItem.after(firstItem);
+		carouselList.css({marginLeft:0});
+	};
+
+	function changeButtonsForward () {
+		i++;
+		buttons.eq(i).addClass('active');
+		buttons.eq(i-1).removeClass('active');
+		if (i==4) {
+			i = -1;
+		};	
+	};
+
+	$('[id="forward"]').click(changeSlide);
+
+	$('[id="back"]').click(moveLastSlide);
+
+	function moveLastSlide () {
+
+		var firstItem = carouselList.find("li:first");
+		var lastItem = carouselList.find("li:last");
+		firstItem.before(lastItem);
+		carouselList.css({marginLeft:-400});
+		carouselList.animate({'marginLeft':0}, 1000, function() {});
+
+		changeButtonsBack ()
+	};
+
+	function changeButtonsBack () {
+		i--;
+		buttons.eq(i).addClass('active');
+		buttons.eq(i+1).removeClass('active');
+		if (i==-5) {
+			i = 0;
+		};
+	}
+    
 });
 
