@@ -1,60 +1,21 @@
 // scripts.js
-$(function(){
+function Phone(name, brand, price, color) {
+	this.brand = brand;
+	this.price = price;
+	this.color = color;
+	this.name = name;
+}
 
-	var carouselList = $("#carousel ul");
-	var interval = setInterval(changeSlide, 3000);
-	
-	
-	var i = 0;
-	var buttons = $('.slider');
-		buttons.eq(i).addClass('active');
+Phone.prototype.printInfo = function () {
+		console.log('The phone name is ' + this.name + ' brand is ' + this.brand +', color is '+ this.color +' and the price is ' + this.price +' zł.');
+}
 
-	function changeSlide () {
-		carouselList.animate({'marginLeft':-400}, 1000, moveFirstSlide);
-		
-		changeButtonsForward ();
-	};
+var iPhone6S = new Phone ('iPhone 6s ', 'Apple', 1649, 'silver');
+var samsungGalaxyS6 = new Phone ('Samsung Galaxy S6 ','Samsung', 1099, 'gold');
+var onePlusOne = new Phone ('One Plus One','One Plus', 1989, 'black');
 
-	function moveFirstSlide () {
+iPhone6S.printInfo();
+samsungGalaxyS6.printInfo();
+onePlusOne.printInfo();
 
-		var firstItem = carouselList.find("li:first");
-		var lastItem = carouselList.find("li:last");
-		lastItem.after(firstItem);
-		carouselList.css({marginLeft:0});
-	};
-
-	function changeButtonsForward () {
-		i++;
-		buttons.eq(i).addClass('active');
-		buttons.eq(i-1).removeClass('active');
-		if (i==4) {
-			i = -1;
-		};	
-	};
-
-	$('[id="forward"]').click(changeSlide);
-
-	$('[id="back"]').click(moveLastSlide);
-
-	function moveLastSlide () {
-
-		var firstItem = carouselList.find("li:first");
-		var lastItem = carouselList.find("li:last");
-		firstItem.before(lastItem);
-		carouselList.css({marginLeft:-400});
-		carouselList.animate({'marginLeft':0}, 1000, function() {});
-
-		changeButtonsBack ()
-	};
-
-	function changeButtonsBack () {
-		i--;
-		buttons.eq(i).addClass('active');
-		buttons.eq(i+1).removeClass('active');
-		if (i==-5) {
-			i = 0;
-		};
-	}
-    
-});
 
