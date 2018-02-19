@@ -2,24 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> 12.6 Wyszukiwarka krajów </title>
+    <title> 12. 7 Kanban </title>
     <link rel="Stylesheet" type="text/css" href="css/style.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   </head>
   <body>
-    <h1>Country search engine</h1>
-
-    <input id="country-name" type="text" />
-    <button id="search">Search a country</button>
-
-    <h2>List of countries</h2>
-    <ul id="countries">
-    </ul>
-
-  	
+      <div id="board" class="board">
+        <h1>Your Kanban Board</h1>
+        <button class="create-column">Add a column</button>
+        <div class="column-container"></div>
+      </div>
   
-  	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
   </body>
 </html>

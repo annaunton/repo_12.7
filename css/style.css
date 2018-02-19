@@ -1,37 +1,78 @@
 ﻿
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
-
-* {
-	box-sizing: border-box;
-}
-body {
-	background: #55ACEE;
-	color: #fff;
+.board {
+	background: #ccc url(https://static.pexels.com/photos/7640/pexels-photo.jpg) 0/cover no-repeat;
+	padding: 30px;
+	width: 70%;
+	max-width: 1200px;
+	margin: 0 auto;
 	text-align: center;
-	font-family: 'Open Sans', sans-serif;
 }
-
-h3 {
-	font-weight: 600;
-	text-shadow: 2px 2px 5px #000;
+.board:before, .board:after  {
+	content: '';
+	display: table;
+	clear: both;
 }
-ul {
-	list-style-type: none;
-}
-
-#search, #country-name {
-	margin: 20px auto;
+.board > h1 {
 	color: #fff;
-	background: #55ACEE;
-	border: 0.5px solid  #fff;
-	border-radius: 5px;
-	width: 150px;
-	height: 40px;
-	line-height: 40px;
-	font-weight: 400;
-	font-size: 16px;
+	text-shadow: 2px 2px 2px black;
+} 
+.column-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: stretch;
 }
-#country-name {
-	background: #fff;
+
+.column {
+	background: rgba(0, 0, 0 , 0.5);
+	display: inline-block;
+	min-width: 300px;
+	min-height: 300px;
+	border-radius: 5px;
+	margin-top:20px;
+	box-shadow: 2px 2px 5px black;
+	color: #fff;
+	position: relative;
+}
+.card-placeholder {
+	border: 1px dashed #fff;
+	height: 50px;
+}
+.column-card-list {
+	min-height: 100px;
+	list-style-type: none;
+	margin: 0;
+	padding: 20px;
+}
+.card {
+	background: rgba(255, 255, 255, 0.7);
 	color: #000;
+	height: 50px;
+	line-height: 50px;
+}
+.btn-delete {
+	position: absolute;
+	color: #fff;
+	background: transparent;
+	top: 10px;
+	right: 10px;
+}
+.create-column {
+	width: 100px;
+	height: 40px;
+	border-radius: 10px;
+	color: #222;
+	background: rgba(255, 255, 255, 0.7);
+}
+.add-card {
+	color: #fff;
+	background: transparent;
+	border-radius: 10px;
+	width: 100px;
+	height: 30px;
+}
+.btn-delete-card {
+	float: right;
+	background: transparent;
+
 }
