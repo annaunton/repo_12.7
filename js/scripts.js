@@ -186,9 +186,10 @@ function setupCards(col, cards) {
   	})
 }
 
-
-var col = new Column(1, "TO DO");
-board.createColumn(col);
+var todoColumn = new Column('To do');
+board.createColumn(todoColumn);
+var card1 = new Card('Task 1');
+todoColumn.createCard(card1);
 
 
 /*
